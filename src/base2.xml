@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+">
+<!--    scope="prototype" 多实例时,销毁会不执行-->
+<!--    <bean id="user" class="com.sun.qing.service.User" init-method="initMy" destroy-method="destroyMy" >-->
+<!--        <property name="name" value="孙庆"></property>-->
+<!--    </bean>-->
+<!--    &lt;!&ndash;配置后置处理器&ndash;&gt;-->
+<!--    <bean id="myBeanPost" class="com.sun.qing.service.MyBeanPost"></bean>-->
+
+<!--之前-->
+<!--    <bean id="userService" class="com.sun.qing.service.UserService">-->
+<!--        <property name="userDao" ref="userDao"></property>-->
+<!--    </bean>-->
+<!--    <bean id="userDao" class="com.sun.qing.dao.UserDao"></bean>-->
+<!--现在-->
+    <bean id="userService" class="com.sun.qing.service.UserService" autowire="byName">
+<!--        <property name="userDao" ref="userDao"></property>-->
+    </bean>
+    <bean id="userDao1" class="com.sun.qing.dao.UserDao"></bean>
+    <bean id="userDaor" class="com.sun.qing.dao.UserDao"></bean>
+
+
+</beans>

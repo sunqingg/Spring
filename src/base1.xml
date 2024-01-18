@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+">
+    <!--创建多个 course 对象-->
+    <bean id="course1" class="com.sun.qing.service.Book">
+        <property name="bname" value="Spring5 框架"></property>
+    </bean>
+    <bean id="course2" class="com.sun.qing.service.Book">
+        <property name="bname" value="MyBatis 框架"></property>
+    </bean>
+
+    <!--1 集合类型属性注入-->
+    <bean id="stu" class="com.sun.qing.service.Stu">
+        <!--数组类型属性注入-->
+        <property name="courses">
+            <list>
+                <value>java 课程</value>
+                <value>数据库课程</value>
+            </list>
+
+        </property>
+        <!--注入 list 集合类型，值是对象-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+        <!--list 类型属性注入-->
+        <property name="list">
+            <array>
+                <value>xx</value>
+            </array>
+        </property>
+        <!--map 类型属性注入-->
+        <property name="maps">
+
+            <map>
+                <entry key="JAVA" value="java"></entry>
+                <entry key="PHP" value="php"></entry>
+            </map>
+
+        </property>
+        <!--set 类型属性注入-->
+        <property name="sets">
+            <set>
+                <value>MySQL</value>
+                <value>Mysql</value>
+            </set>
+        </property>
+    </bean>
+
+</beans>
