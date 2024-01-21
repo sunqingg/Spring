@@ -1,8 +1,11 @@
 import com.alibaba.druid.pool.DruidDataSource;
+import com.sun.qing.dao.config.SpringConfig;
 import com.sun.qing.service.*;
 
 
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestUser {
@@ -88,4 +91,10 @@ public class TestUser {
         System.out.println(dataSource);
         System.out.println(dataSource.getDriver());
     }
+//    @Test
+//    void testDemo11() {
+//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
+//        UserService userService = applicationContext.getBean("userService", UserService.class);
+//        userService.add();
+//    }
 }

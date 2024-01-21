@@ -1,8 +1,10 @@
 import com.alibaba.druid.pool.DruidDataSource;
 import com.sun.qing.service.UserService;
+import com.sun.qing.service.config.SpringConfig;
 import com.sun.qing.service.dao.UserController;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestDemo {
@@ -20,4 +22,13 @@ public class TestDemo {
         userController.add();
     }
 //    UserController add ...
+
+    @Test
+    void demo03AnnotationCreate() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        UserService userService = context.getBean("userService", UserService.class);
+//        userService.add();
+        userService.annotationUse();
+    }
+
 }
